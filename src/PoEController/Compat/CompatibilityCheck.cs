@@ -119,6 +119,7 @@ namespace PoEController.Compat
             // Hidden cursor hover
             M(Features.HiddenCursorHover, "GameInput", "Update"),
             F(Features.HiddenCursorHover, "GameCursor", "CharacterUnderCursor"),
+            F(Features.HiddenCursorWindow, "GameCursor", "PrefabCursors"),
             M(Features.StopParty, "Player", "CancelAllActions"),
             F(Features.GeneralRadial, "PlayerInventory", "CampingSuppliesTotal"),
             F(Features.GeneralRadial, "InGameHUD", "HighlightActive"),

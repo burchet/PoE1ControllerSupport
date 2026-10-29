@@ -16,7 +16,9 @@ namespace PoEController.Input
     /// <item>Controller found: a message; buttons already held are ignored until released (Gamepad). The mode only
     /// switches once the controller is actually used.</item>
     /// <item>While playing in the world with the controller, the game's cursor is hidden (the same way cutscenes hide
-    /// it) and parked mid-screen so it can't edge-scroll; it comes back the moment the mouse is touched.</item>
+    /// it) and parked mid-screen so it can't edge-scroll; it comes back the moment the mouse is touched.
+    /// Conversations hide it too: the mod still moves it onto the chosen response, so the game highlights it, but
+    /// the pointer no longer covers the line.</item>
     /// </list>
     /// </summary>
     internal sealed class DeviceTransitions
@@ -54,8 +56,9 @@ namespace PoEController.Input
         {
             bool hide = m_Plugin.Mode.Active == InputDevice.Gamepad
                 && m_Plugin.Pad.Connected
-                && m_Plugin.Router.Active is IWorldScheme world
-                && !world.CursorActive;
+                && (m_Plugin.Router.Active is IWorldScheme world && !world.CursorActive
+                    // Hidden cursor still hovers the chosen response.
+                    || m_Plugin.Router.Active is ConversationScheme);
             SetCursorHidden(hide);
         }
 

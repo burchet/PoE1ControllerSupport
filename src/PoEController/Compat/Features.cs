@@ -28,6 +28,7 @@ namespace PoEController.Compat
         public const string Compare = "Item comparison";
         public const string Settings = "Controller settings panel";
         public const string HiddenCursorHover = "No hover from the hidden cursor";
+        public const string HiddenCursorWindow = "Cursor hidden in conversations";
         public const string StopParty = "B stops the party (Console style)";
         public const string GeneralRadial = "General Radial on LT (Console style)";
         public const string CombatRadial = "Combat Radial on RT (Console style)";
